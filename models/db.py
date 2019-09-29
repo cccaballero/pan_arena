@@ -156,6 +156,8 @@ if configuration.get('scheduler.enabled'):
 # -------------------------------------------------------------------------
 # auth.enable_record_versioning(db)
 
+auth.settings.actions_disabled.append('register')
+
 T.force('es')
 
 response.title = 'Pan Arena, batalla de los panes'
