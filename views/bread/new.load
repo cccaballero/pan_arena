@@ -1,0 +1,8 @@
+
+<h2>{{='Incluye un nuevo pan'}}</h2>
+
+{{if not session.has_sent_bread:}}
+{{=form}}
+{{else:}}
+<p>Solo puede enviar un pan por sesión</p>
+{{pass}}

@@ -1,0 +1,48 @@
+{{extend 'layout.html'}}
+
+{{block header}}
+<div class="jumbotron jumbotron-fluid background" style="background-color: #333; color:white; padding:30px;word-wrap:break-word;">
+  <div class="container center">
+    <h1 class="display-5">{{='Batalla de los Panes'}}</h1>
+  </div>
+</div>
+{{end}}
+
+<div class="row">
+    <div class="col-md-12">
+        <h2>Que es este sitio?</h2>
+        <p>Esta es la batalla de los panes, puede dar "Es malo" a los panes mas malos y tendremos un ranking de donde se fabrican los peores panes.</p>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col md-9">
+        <div class="row">
+            {{for bread in breads:}}
+            <dev class="col-md-6" style="margin-top: 10px">
+                {{=LOAD('bread', 'view', args=[bread.id], extension='load', ajax=True, ajax_trap=True)}}
+            </dev>
+            {{pass}}
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="row">
+            <div class="col-md-12">
+                <h2>Ranking</h2>
+                <ol>
+                {{for bread in ranking:}}
+                <li>{{=bread.source}}</li>
+                {{pass}}
+                </ol>
+            </div>
+            <div class="col-md-12">
+                {{=LOAD('bread', 'new', extension='load', ajax=True, ajax_trap=True)}}
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
